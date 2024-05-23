@@ -8,7 +8,7 @@ import ThemeSwitcher from "./theme-switcher";
 
 export default function Sidebar() {
   return (
-    <nav className="p-6 pb-4 min-w-80 min-h-full bg-primary drop-shadow-sm flex flex-col gap-8">
+    <nav className="flex-none p-6 pb-4 min-w-80 max-w-80 w-1/3 min-h-screen bg-primary drop-shadow-sm flex flex-col gap-8">
       <SidebarHeader title="Company" />
       <div className="flex flex-col gap-1 h-full justify-between">
         <div className="flex flex-col gap-1">

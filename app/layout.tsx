@@ -24,8 +24,10 @@ export default function RootLayout({
       <body className={karla.className}>
         <Provider>
           <ThemeWrapper defaultTheme="default">
-            <Sidebar />
-            {children}
+            <div className="flex w-full">
+              <Sidebar />
+              {children}
+            </div>
           </ThemeWrapper>
         </Provider>
       </body>

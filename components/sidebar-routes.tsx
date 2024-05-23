@@ -16,7 +16,7 @@ export default function SidebarRoutes({
         <span>{title}</span>
       </div>
       {number ? (
-        <span className="font-medium text-xs p-2 py-1 mr-1 group-hover:text-white group-hover:bg-icon-outline bg-secondary rounded-lg transition-all ease-in-out duration-150">
+        <span className="font-medium text-xs p-2 py-1 mr-1 group-hover:text-white group-hover:bg-icon-outline bg-secondary rounded-lg transition-all ease-in-out duration-300">
           {number}
         </span>
       ) : null}
