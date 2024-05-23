@@ -1,0 +1,27 @@
+.theme-rose {
+  --primary: #fd6f8e;
+  --secondary: #fea3b4;
+  --icon-outline: #fecdd6;
+  --icon: #ffe4e8;
+}
+
+.theme-gray-blue {
+  --primary: #4e5ba6;
+  --secondary: #717bbc;
+  --icon-outline: #d5d9eb;
+  --icon: #e1e4f0;
+}
+
+.theme-moss {
+  --primary: #86cb3c;
+  --secondary: #acdc79;
+  --icon-outline: #ceeab0;
+  --icon: #e6f4d7;
+}
+
+.theme-yellow {
+  --primary: #fac515;
+  --secondary: #fde272;
+  --icon-outline: #feee95;
+  --icon: #fef7c3;
+}
