@@ -19,6 +19,11 @@ export const themes = [
     label: "Moss",
     color: "#86cb3c",
   },
+  {
+    name: "default",
+    label: "Default",
+    color: "#1f2938",
+  },
 ] as const;
 
 export type Theme = (typeof themes)[number];

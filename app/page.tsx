@@ -8,7 +8,7 @@ export default function Home() {
   const theme = themes.find((theme) => theme.name === config.theme);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex w-full min-h-screen bg-secondary flex-col items-center justify-between p-16">
       {themes.map((theme) => (
         <button
           key={theme.name}

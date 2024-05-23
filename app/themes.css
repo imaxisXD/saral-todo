@@ -25,3 +25,10 @@
   --icon-outline: #feee95;
   --icon: #fef7c3;
 }
+
+.theme-default {
+  --primary: #ffff;
+  --secondary: #f2f4f6;
+  --icon-outline: #1f2938;
+  --icon: #677185;
+}

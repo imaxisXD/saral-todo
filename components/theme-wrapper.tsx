@@ -1,6 +1,7 @@
 "use client";
 import { useThemeConfig } from "@/hooks/use-theme-config";
 import { cn } from "@/utils/utility";
+import "@/app//globals.css";
 import "@/app/themes.css";
 
 interface ThemeWrapperProps extends React.ComponentProps<"div"> {
@@ -18,7 +19,7 @@ export function ThemeWrapper({
     <div
       className={cn(
         `theme-${config.theme || defaultTheme}`,
-        "w-full",
+        "w-full flex justify-start",
         className
       )}
     >

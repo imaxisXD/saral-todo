@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Karla } from "next/font/google";
 import "./globals.css";
-import { ThemeWrapper } from "@/componets/theme-wrapper";
+import { ThemeWrapper } from "@/components/theme-wrapper";
+import Sidebar from "@/components/sidebar";
+import { Provider } from "jotai/react";
 
 const karla = Karla({
   subsets: ["latin"],
@@ -20,7 +22,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={karla.className}>
-        <ThemeWrapper defaultTheme="rose">{children}</ThemeWrapper>
+        <Provider>
+          <ThemeWrapper defaultTheme="default">
+            <Sidebar />
+            {children}
+          </ThemeWrapper>
+        </Provider>
       </body>
     </html>
   );

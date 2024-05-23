@@ -7,7 +7,7 @@ type ThemeConfig = {
 };
 
 const themeAtom = atomWithStorage<ThemeConfig>("theme", {
-  theme: "rose",
+  theme: "default",
 });
 
 export function useThemeConfig() {
