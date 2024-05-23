@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@formkit/drag-and-drop": "^0.0.38",
     "clsx": "^2.1.1",
     "jotai": "^2.8.1",
     "next": "14.2.3",

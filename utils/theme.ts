@@ -1,5 +1,10 @@
 export const themes = [
   {
+    name: "default",
+    label: "Default",
+    color: "#1f2938",
+  },
+  {
     name: "rose",
     label: "Rose",
     color: "#fd6f8e",
@@ -18,11 +23,6 @@ export const themes = [
     name: "moss",
     label: "Moss",
     color: "#86cb3c",
-  },
-  {
-    name: "default",
-    label: "Default",
-    color: "#1f2938",
   },
 ] as const;
 
