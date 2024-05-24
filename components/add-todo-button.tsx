@@ -19,7 +19,6 @@ export default function AddTodoButton({
   setTodos: Dispatch<SetStateAction<Todo[]>>;
 }) {
   const [task, setTask] = useState("");
-  const [completed, setCompleted] = useState(false);
 
   const handleButtonClick = () => {
     fetch("https://dummyjson.com/todos/add", {
@@ -27,7 +26,7 @@ export default function AddTodoButton({
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         todo: task,
-        completed: completed,
+        completed: false,
         userId: 5,
       }),
     }).then((res) => {
@@ -38,7 +37,7 @@ export default function AddTodoButton({
         {
           id: Math.floor(Math.random() * (1000 - 191 + 1)) + 191,
           todo: task,
-          completed: completed,
+          completed: false,
           userId: Math.floor(Math.random() * 100),
         },
         ...prev,
@@ -75,51 +74,6 @@ export default function AddTodoButton({
               placeholder="Task"
               className="col-span-3 bg-transparent border p-1 rounded-md focus:ring-0 accent-transparent bg-slate-200 text-base font-medium"
             />
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <label
-              htmlFor="task-yes"
-              className="text-right text-base font-medium text-gray-100"
-            >
-              Completed
-            </label>
-
-            <div className="col-span-3 flex items-center space-x-4">
-              <div className="flex items-center">
-                <input
-                  checked={completed === true}
-                  onChange={() => setCompleted(true)}
-                  id="task-yes"
-                  name="task-completed"
-                  type="radio"
-                  value="true"
-                  className="bg-transparent border p-1 rounded-md focus:ring-0 accent-transparent bg-slate-200 text-base font-medium"
-                />
-
-                <label
-                  htmlFor="task-yes"
-                  className="ml-2 text-base font-medium"
-                >
-                  Yes
-                </label>
-              </div>
-
-              <div className="flex items-center">
-                <input
-                  id="task-no"
-                  name="task-completed"
-                  type="radio"
-                  value="false"
-                  checked={completed === false}
-                  onChange={() => setCompleted(false)}
-                  className="bg-transparent border p-1 rounded-md focus:ring-0 accent-transparent bg-slate-200 text-base font-medium"
-                />
-
-                <label htmlFor="task-no" className="ml-2 text-base font-medium">
-                  No
-                </label>
-              </div>
-            </div>
           </div>
         </div>
         <DialogFooter>

@@ -1,10 +1,10 @@
 "use client";
 import { Todo } from "@/utils/types";
-import Plus from "./svgs/plus";
 import TodoCard from "./todo-card";
 import { useDragAndDrop } from "@formkit/drag-and-drop/react";
 import { animations, handleEnd } from "@formkit/drag-and-drop";
 import AddTodoButton from "./add-todo-button";
+import ClearAllTodoButton from "./clear-all-todo-button";
 
 export default function TodoList({
   data,
@@ -52,9 +52,13 @@ export default function TodoList({
 
   return (
     <div className="flex flex-col items-start justify-start h-full w-1/2 gap-3">
-      <div className="flex items-center justify-between gap-2 w-full px-1">
-        <h2 className="font-bold text-icon">{title}</h2>
-        <AddTodoButton buttonText={buttonText} setTodos={setTodos} />
+      <div className="flex items-start justify-between gap-2 w-full px-1 h-10 ">
+        <h2 className="font-bold text-icon p-1">{title}</h2>
+        {title === "INCOMPLETE" ? (
+          <AddTodoButton buttonText={buttonText} setTodos={setTodos} />
+        ) : (
+          <ClearAllTodoButton buttonText={buttonText} setTodos={setTodos} />
+        )}
       </div>
       <ul
         ref={todoList}
@@ -63,8 +67,9 @@ export default function TodoList({
         {todos.map((todo) => (
           <TodoCard
             todo={todo.todo}
-            completed={todo.completed}
             key={todo.id}
+            id={todo.id}
+            setTodos={setTodos}
             type={title === "INCOMPLETE" ? "incomplete" : "completed"}
           />
         ))}
