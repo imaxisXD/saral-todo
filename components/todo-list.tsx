@@ -3,7 +3,8 @@ import { Todo } from "@/utils/types";
 import Plus from "./svgs/plus";
 import TodoCard from "./todo-card";
 import { useDragAndDrop } from "@formkit/drag-and-drop/react";
-import { animations } from "@formkit/drag-and-drop";
+import { animations, handleEnd } from "@formkit/drag-and-drop";
+import AddTodoButton from "./add-todo-button";
 
 export default function TodoList({
   data,
@@ -14,27 +15,58 @@ export default function TodoList({
   title: string;
   buttonText: string;
 }) {
-  const [todoList, todos] = useDragAndDrop<HTMLUListElement, Todo>(data, {
-    group: "todoList",
+  const [todoList, todos, setTodos] = useDragAndDrop<HTMLUListElement, Todo>(
+    data,
+    {
+      group: "todoList",
+      handleEnd(data) {
+        const todoId = data.targetData.node.data.value.id;
+        const completed = data.targetData.node.data.value.completed;
 
-    plugins: [animations()],
-  });
+        fetch(`https://dummyjson.com/todos/${todoId}`, {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            completed: !completed,
+          }),
+        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(`HTTP error ${response.status}`);
+            }
+            setTodos((prev) =>
+              prev.map((todo) =>
+                todo.id === todoId
+                  ? { ...todo, completed: !todo.completed }
+                  : todo
+              )
+            );
+            return response.json();
+          })
+          .catch((e) => console.error("Error: ", e));
+        handleEnd(data);
+      },
+      plugins: [animations()],
+    }
+  );
 
   return (
     <div className="flex flex-col items-start justify-start h-full w-1/2 gap-3">
-      <div className="flex items-center justify-between gap-2 w-full">
+      <div className="flex items-center justify-between gap-2 w-full px-1">
         <h2 className="font-bold text-icon">{title}</h2>
-        <button className="flex items-center gap-1 hover:bg-primary hover:text-icon p-1 rounded-md ease-linear transition-all duration-150 border border-transparent hover:border-icon">
-          <Plus className="w-5 h-5" strokeWidth={2} />
-          <span>{buttonText}</span>
-        </button>
+        <AddTodoButton buttonText={buttonText} setTodos={setTodos} />
       </div>
       <ul
         ref={todoList}
-        className="flex flex-col gap-4 w-full h-full overflow-y-auto no-scrollbar p-2 drop-shadow"
+        className={`flex flex-col gap-4 w-full h-full overflow-y-auto no-scrollbar p-2 drop-shadow`}
       >
         {todos.map((todo) => (
-          <TodoCard todo={todo.todo} completed={todo.completed} key={todo.id} />
+          <TodoCard
+            todo={todo.todo}
+            completed={todo.completed}
+            key={todo.id}
+            type={title === "INCOMPLETE" ? "incomplete" : "completed"}
+          />
         ))}
       </ul>
     </div>

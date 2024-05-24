@@ -9,7 +9,7 @@ export default async function Home() {
   const todos = data.todos.filter((todo) => !todo.completed);
 
   return (
-    <main className="flex-auto flex w-2/3 min-h-screen h-screen gap-4 bg-secondary items-start justify-between p-8">
+    <main className="flex-auto flex w-2/3 min-h-screen h-screen gap-1 bg-secondary items-start justify-between p-8">
       <TodoList data={todos} title="INCOMPLETE" buttonText="Add" />
       <TodoList data={doneList} title="COMPLETE" buttonText="Clear All" />
     </main>
