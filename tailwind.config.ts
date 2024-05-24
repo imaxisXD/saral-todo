@@ -14,6 +14,7 @@ const config: Config = {
         secondary: "var(--secondary)",
         icon: "var(--icon)",
         "icon-outline": "var(--icon-outline)",
+        scratch: "var(--scratch)",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

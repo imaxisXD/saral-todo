@@ -1,15 +1,17 @@
 .theme-rose {
   --primary: #fd6f8e;
-  --secondary: #fea3b4;
-  --icon-outline: #fecdd6;
-  --icon: #ffe4e8;
+  --secondary: #fecdd6;
+  --icon-outline: #a11043;
+  --icon: #89123e;
+  --scratch: #ffff;
 }
 
 .theme-gray-blue {
-  --primary: #4e5ba6;
-  --secondary: #717bbc;
+  --primary: #717bbc;
+  --secondary: #b3b8db;
   --icon-outline: #d5d9eb;
-  --icon: #e1e4f0;
+  --icon: #eaecf5;
+  --scratch: #3e4784;
 }
 
 .theme-moss {
@@ -21,9 +23,10 @@
 
 .theme-yellow {
   --primary: #fac515;
-  --secondary: #fde272;
-  --icon-outline: #feee95;
+  --secondary: #eaaa08;
+  --icon-outline: #713b12;
   --icon: #fef7c3;
+  --scratch: #fefbe8;
 }
 
 .theme-default {
@@ -31,4 +34,5 @@
   --secondary: #f2f4f6;
   --icon-outline: #1f2938;
   --icon: #677185;
+  --scratch: rgb(239 68 68);
 }

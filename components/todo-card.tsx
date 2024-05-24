@@ -41,9 +41,7 @@ export default function TodoCard({
       <div className="flex flex-col gap-1 items-start justify-between">
         <h1
           className={`font-bold text-xl text-icon-outline text-pretty tracking-tight ${
-            type === "completed"
-              ? "text-red-500/80 line-through"
-              : "text-blue-400"
+            type === "completed" ? "text-scratch line-through" : ""
           }`}
         >
           {todo}
@@ -72,7 +70,7 @@ export default function TodoCard({
         />
         <button
           onClick={handleDelete}
-          className="hover:cursor-pointer transition-all ease-in-out duration-150 hover:text-red-500"
+          className="hover:cursor-pointer transition-all ease-in-out duration-150 hover:text-scratch"
         >
           <Delete className="w-5 h-5 " />
         </button>
